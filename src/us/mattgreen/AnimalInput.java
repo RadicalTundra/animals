@@ -26,7 +26,9 @@ public class AnimalInput {
            }
         }
         else{
+            System.out.println("\n---------------------------------\n");
             System.out.println("Please enter a proper type ya goof!");
+            System.out.println("\n---------------------------------\n");
            Prompt(zoo);
            
         }
@@ -34,16 +36,21 @@ public class AnimalInput {
     }
     
     public ArrayList addCat(ArrayList<Talkable> zoo){
-        System.out.println("ayyyy, you did it!\n");
-        
-        System.out.println("How many mice have you killed?");
+        System.out.println("\nHow many mice have you killed?");
         Scanner sc = new Scanner(System.in);
         int miceKilled = 0;
+        String catName = "";
         try{
             miceKilled = sc.nextInt();
+            System.out.println("\nSo what's your name little guy?");
+            Scanner sc2 = new Scanner(System.in);
+            catName = sc2.nextLine();
+            zoo.add(new Cat(miceKilled, catName));
         }
-        catch(NumberFormatException e){
+        catch(Exception e){
+            System.out.println("\n---------------------------------\n");
             System.out.println("You must enter a number ya goof!");
+            System.out.println("\n---------------------------------");
             addCat(zoo);
         }
         
@@ -51,14 +58,48 @@ public class AnimalInput {
         return zoo;
     }
     public ArrayList addDog(ArrayList<Talkable> zoo){
-        System.out.println("ayyyy, you did it!");
+        System.out.println("\nSo, are you a friendly little friend?");
+        Scanner sc = new Scanner(System.in);
+        boolean goodBoy = true;
+        String dogName = "";
+        try{
+            goodBoy = sc.nextBoolean();
+            System.out.println("\nSo what's your name little buddy?");
+            Scanner sc2 = new Scanner(System.in);
+            dogName = sc2.nextLine();
+            zoo.add(new Dog(goodBoy, dogName));
+        }
+        catch(Exception e){
+            System.out.println("\n---------------------------------\n");
+            System.out.println("You must enter a true or a false statement!");
+            System.out.println("\n---------------------------------");
+            addCat(zoo);
+        }
+        
+        
         return zoo;
     }
     public ArrayList addPerson(ArrayList<Talkable> zoo){
-        //only student's are talkable btw, so add student.
-        System.out.println("ayyyy, you did it!");
+        System.out.println("\nWhat's your age?");
+        Scanner sc = new Scanner(System.in);
+        int personAge = 0;
+        String personName = "";
+        try{
+            personAge = sc.nextInt();
+            System.out.println("\nSo what's your name?");
+            Scanner sc2 = new Scanner(System.in);
+            personName = sc2.nextLine();
+            zoo.add(new Student(personAge, personName));
+        }
+        catch(Exception e){
+            System.out.println("\n---------------------------------\n");
+            System.out.println("You must enter a number ya goof!");
+            System.out.println("\n---------------------------------");
+            addCat(zoo);
+        }
+        
+        
         return zoo;
     }
-    
     
 }
