@@ -14,12 +14,12 @@ public class Main {
     public Main() {
         ArrayList<Talkable> zoo = new ArrayList<>();
 
-        // Lines to Replace
-        zoo.add(new Dog(true, "Pete"));
-        zoo.add(new Cat(9, "Anne Belly"));
-        zoo.add(new Student(19, "Joe John Johnson"));
-        // End Lines to Replace
-
+//        // Lines to Replace
+//        zoo.add(new Dog(true, "Pete"));
+//        zoo.add(new Cat(9, "Anne Belly"));
+//        zoo.add(new Student(19, "Joe John Johnson"));
+//        // End Lines to Replace
+          AnimalInput input = new AnimalInput(zoo);
         for (Talkable thing : zoo) {
             printOut(thing);
         }
