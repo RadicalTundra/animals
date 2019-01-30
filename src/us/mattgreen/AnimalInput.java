@@ -9,12 +9,13 @@ public class AnimalInput {
         Prompt(zoo);
 
     }
-    
+    //promts the user to choose what they are, a cat, dog or person
     public ArrayList Prompt(ArrayList<Talkable> zoo){
         System.out.println("Do you want to be a cat, a dog, or a person?");
         Scanner sc = new Scanner(System.in);
         String userInput = sc.nextLine();
         String test = userInput.toLowerCase();
+        //Makes sure user enters the right type
         if( "cat".equals(test) || "dog".equals(test) || "person".equals(test)){
            switch (test){
                case "cat": addCat(zoo);
@@ -34,7 +35,7 @@ public class AnimalInput {
         }
         return zoo;
     }
-    
+    //if they chose cat they go here
     public ArrayList addCat(ArrayList<Talkable> zoo){
         System.out.println("\nHow many mice have you killed?");
         Scanner sc = new Scanner(System.in);
@@ -57,14 +58,15 @@ public class AnimalInput {
         
         return zoo;
     }
+    //if they chose dog they go here
     public ArrayList addDog(ArrayList<Talkable> zoo){
-        System.out.println("\nSo, are you a friendly little friend?");
+        System.out.println("\nSo, are you a friendly little guy? (true or false)");
         Scanner sc = new Scanner(System.in);
         boolean goodBoy = true;
         String dogName = "";
         try{
             goodBoy = sc.nextBoolean();
-            System.out.println("\nSo what's your name little buddy?");
+            System.out.println("\nSo what's your name buddy?");
             Scanner sc2 = new Scanner(System.in);
             dogName = sc2.nextLine();
             zoo.add(new Dog(goodBoy, dogName));
@@ -73,12 +75,13 @@ public class AnimalInput {
             System.out.println("\n---------------------------------\n");
             System.out.println("You must enter a true or a false statement!");
             System.out.println("\n---------------------------------");
-            addCat(zoo);
+            addDog(zoo);
         }
         
         
         return zoo;
     }
+    //If they chose person they go here
     public ArrayList addPerson(ArrayList<Talkable> zoo){
         System.out.println("\nWhat's your age?");
         Scanner sc = new Scanner(System.in);
@@ -95,7 +98,7 @@ public class AnimalInput {
             System.out.println("\n---------------------------------\n");
             System.out.println("You must enter a number ya goof!");
             System.out.println("\n---------------------------------");
-            addCat(zoo);
+            addPerson(zoo);
         }
         
         
