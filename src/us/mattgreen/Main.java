@@ -21,13 +21,14 @@ public class Main {
 //        zoo.add(new Student(19, "Joe John Johnson"));
 //        // End Lines to Replace
           AnimalInput input = new AnimalInput(zoo);
+          InputTypeVerifier check = new InputTypeVerifier();
           
           System.out.println("\nWould you like to add another animal?");
           Scanner sc = new Scanner(System.in);
           String userInput = sc.nextLine();
           String test = userInput.toLowerCase();
           if("yes".equals(test)){
-              input.Prompt(zoo);
+              input.Prompt(zoo, check);
           }
           System.out.println("\n");
         for (Talkable thing : zoo) {
